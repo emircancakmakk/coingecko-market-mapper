@@ -7,7 +7,7 @@ base_url = "https://api.coingecko.com/api/v3/coins/"
 
 headers = {
     "accept": "application/json",
-    "x_cg_demo_api_key": "CG-k7Th67nWFnu6X1gZ35yNCdz1"
+    "x_cg_demo_api_key": "CG-REX7PBhEy3JQ9dhwV4CmrWkF"
 }
 
 with open("coin_ids.txt", "r") as coin_ids:
@@ -35,12 +35,12 @@ with open("coin_ids.txt", "r") as coin_ids:
                 "chat_urls": coin.chat_urls
             }
             
-            with open(f"coins/{coin_id}.json", "w") as file:
+            with open(f"coins/{coin_id}.json", "w", encoding="utf-8") as file:
                 file.write(json.dumps(coin_data_extracted))
                 
             print(f"Data for coin '{coin_id}' processed and saved to file.")
            
-            time.sleep(10)
+            time.sleep(3)
             
         except requests.exceptions.RequestException as e:
             print(f"Error fetching data for coin '{coin_id}': {e}")
