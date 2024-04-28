@@ -3,17 +3,14 @@ from coin import Coin
 import json
 import time
 
-base_url = "https://api.coingecko.com/api/v3/coins/"
-
 headers = {
-    "accept": "application/json",
-    "x_cg_demo_api_key": "CG-REX7PBhEy3JQ9dhwV4CmrWkF"
+    "accept": "application/json"
 }
 
 with open("coin_ids.txt", "r") as coin_ids:
     for coin_id in coin_ids:
         coin_id = coin_id.strip()
-        url = base_url + coin_id
+        url = f"https://api.coingecko.com/api/v3/coins/{coin_id}?x_cg_demo_api_key=CG-REX7PBhEy3JQ9dhwV4CmrWkF"
         
         try:
             response = requests.get(url, headers=headers)
@@ -43,4 +40,6 @@ with open("coin_ids.txt", "r") as coin_ids:
             time.sleep(3)
             
         except requests.exceptions.RequestException as e:
+            with open("error_log.txt", "a") as error_log:
+                error_log.write(f"Error fetching data for coin '{coin_id}': {e}\n")
             print(f"Error fetching data for coin '{coin_id}': {e}")
