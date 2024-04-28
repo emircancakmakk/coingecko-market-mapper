@@ -4,10 +4,10 @@ class Coin:
         self.links = coin_data.get('links', {})
         self.watchlist_portfolio_users = coin_data.get('watchlist_portfolio_users')
         self.market_cap_rank = coin_data.get('market_cap_rank')
-        self.price_change_percentage_30d = coin_data.get('price_change_percentage_30d')
-        self.price_change_percentage_60d = coin_data.get('price_change_percentage_60d')
-        self.price_change_percentage_200d = coin_data.get('price_change_percentage_200d')
-        self.price_change_percentage_1y = coin_data.get('price_change_percentage_1y')
+        self.price_change_percentage_30d = coin_data.get('market_data', {}).get('price_change_percentage_30d')
+        self.price_change_percentage_60d = coin_data.get('market_data', {}).get('price_change_percentage_60d')
+        self.price_change_percentage_200d = coin_data.get('market_data', {}).get('price_change_percentage_200d')
+        self.price_change_percentage_1y = coin_data.get('market_data', {}).get('price_change_percentage_1y')
         self.tickers = coin_data.get('tickers', [])
         self.markets = []
         self.chat_urls = []
