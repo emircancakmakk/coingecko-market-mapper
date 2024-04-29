@@ -2,6 +2,7 @@ import requests
 from coin import Coin
 import json
 import time
+import os
 
 headers = {
     "accept": "application/json"
@@ -10,7 +11,7 @@ headers = {
 with open("coin_ids.txt", "r") as coin_ids:
     for coin_id in coin_ids:
         coin_id = coin_id.strip()
-        url = f"https://api.coingecko.com/api/v3/coins/{coin_id}?x_cg_demo_api_key=CG-REX7PBhEy3JQ9dhwV4CmrWkF"
+        url = f"https://api.coingecko.com/api/v3/coins/{coin_id}?x_cg_demo_api_key={os.getenv('COINGECKO_API_KEY')}"
         
         try:
             response = requests.get(url, headers=headers)

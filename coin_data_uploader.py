@@ -2,8 +2,8 @@ from supabase import create_client, Client
 import os
 import json
 
-supabase_url = "https://bbicjwabaozinexagdeb.supabase.co"
-supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJiaWNqd2FiYW96aW5leGFnZGViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQzNTA3MjgsImV4cCI6MjAyOTkyNjcyOH0.5If9CvcSC8F9oA8DS8xE62PC9hrlyfcipPIXiUriQ9Y"
+supabase_url = os.getenv("SUPABASE_URL")
+supabase_key = os.getenv("SUPABASE_KEY")
 
 supabase = create_client(supabase_url, supabase_key)
 

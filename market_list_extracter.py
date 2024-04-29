@@ -1,10 +1,11 @@
 import requests
+import os
 
 url = "https://api.coingecko.com/api/v3/exchanges/list"
 
 headers = {
     "accept": "application/json",
-    "x-cg-demo-api-key": "CG-REX7PBhEy3JQ9dhwV4CmrWkF"
+    "x-cg-demo-api-key": os.getenv('COINGECKO_API_KEY')
 }
 
 response = requests.get(url, headers=headers)
