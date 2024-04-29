@@ -2,7 +2,6 @@ import requests
 from coin import Coin
 import json
 import time
-import os
 
 headers = {
     "accept": "application/json"
@@ -11,7 +10,8 @@ headers = {
 with open("coin_ids.txt", "r") as coin_ids:
     for coin_id in coin_ids:
         coin_id = coin_id.strip()
-        url = f"https://api.coingecko.com/api/v3/coins/{coin_id}?x_cg_demo_api_key={os.getenv('COINGECKO_API_KEY')}"
+        # TODO Use the environment CoinGecko API key as a query parameter in the URL below
+        url = f"https://api.coingecko.com/api/v3/coins/{coin_id}?x_cg_demo_api_key=your_demo_api_key_here"
         
         try:
             response = requests.get(url, headers=headers)
