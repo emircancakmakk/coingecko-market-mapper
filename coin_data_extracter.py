@@ -37,7 +37,7 @@ with open("coin_ids.txt", "r") as coin_ids:
                 
             print(f"Data for coin '{coin_id}' processed and saved to file.")
            
-            time.sleep(3)
+            time.sleep(2)
             
         except requests.exceptions.RequestException as e:
             with open("error_log.txt", "a") as error_log:
